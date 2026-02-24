@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-neutral-200;
+  }
+
+  html {
+    font-size: 16px;
+    overflow-x: hidden;
+    touch-action: manipulation;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+}
+
+
+:root {
+  --ob-black: #0b0b0c;
+  --ob-orange: #ff5500;
+  --ob-orange-soft: #ff7a3d;
+  --ob-white: #ffffff;
+  --ob-ink: #171717;
+  --ob-muted: #525252;
+  --ob-border: rgba(255, 255, 255, 0.09);
+}
+
+body {
+  background: radial-gradient(1200px 500px at 70% -10%, rgba(255, 85, 0, 0.18), transparent 60%), var(--ob-black);
+  color: #f5f4f2;
+}
+
+.ob-section-soft {
+  background: linear-gradient(180deg, #fafaf8 0%, #f5f3f0 100%);
+}
+
+.ob-dark-hero {
+  background: radial-gradient(900px 380px at 80% 0%, rgba(255, 85, 0, 0.18), transparent 60%),
+              linear-gradient(160deg, #070707 0%, #0f0f10 55%, #121212 100%);
+}
+
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
+@media (min-width: 768px) {
+  .content-auto {
+    contain-intrinsic-size: auto 800px;
+  }
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--ob-orange) 65%, white);
+  outline-offset: 2px;
+}
