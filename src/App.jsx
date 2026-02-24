@@ -73,7 +73,7 @@ function App() {
 
   return (
     <ErrorBoundary>
-      <BrowserRouter basename="/orangebee_2_react">
+      <BrowserRouter>
 
         {/* ── Overlay de carga inicial (fuera del Suspense) ───────────── */}
         {!loaderGone && (

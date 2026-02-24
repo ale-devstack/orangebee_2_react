@@ -37,10 +37,6 @@ function Hero() {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
           <div>
-            {/* <div className="inline-flex items-center gap-2 bg-orange-500/10 backdrop-blur-sm border border-orange-500/20 rounded-full px-4 py-2 mb-8">
-              <Hexagon className="w-4 h-4 text-orange-500 fill-orange-500" />
-              <span className="text-white/80 text-sm font-medium">Cobranza inteligente y efectiva</span>
-            </div> **/}
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 ob-hero-title">
               Impulsamos la recuperación de tu
               <span className="block text-orange-500">cartera vencida</span>
@@ -91,7 +87,6 @@ function Hero() {
               </div>
               <div className="absolute -bottom-9 -left-6 bg-orange-500 rounded-2xl px-4 py-6 shadow-xl shadow-orange-500/30 flex items-center gap-3">
                 <div className="text-white font-bold text-lg">Covertura nacional</div>
-                {/*<div className="text-white/80 text-xs">Años</div>*/}
               </div>
             </div>
           </div>
@@ -105,9 +100,6 @@ function Hero() {
 
 export default function Home() {
   usePageTitle();
-
-  // El useEffect de carga fue removido de aquí, 
-  // ahora está delegada su responsabilidad al evento `onLoad` del Hero
 
   return (
     <main className="bg-black">
