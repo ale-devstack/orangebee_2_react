@@ -54,6 +54,48 @@ body {
   }
 }
 
+/* ─── Animaciones (solo si el usuario no prefiere movimiento reducido) ───── */
+@media (prefers-reduced-motion: no-preference) {
+  /* Keyframes para héroes: se reproducen automáticamente al cargar */
+  @keyframes ob-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: none; }
+  }
+  @keyframes ob-in-right {
+    from { opacity: 0; transform: translateX(26px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* Clases de hero — sin JS, solo CSS */
+  .ob-hero-badge { animation: ob-in-up    0.6s  cubic-bezier(0.4,0,0.2,1) 0.05s both; }
+  .ob-hero-title { animation: ob-in-up    0.65s cubic-bezier(0.4,0,0.2,1) 0.15s both; }
+  .ob-hero-body  { animation: ob-in-up    0.6s  cubic-bezier(0.4,0,0.2,1) 0.30s both; }
+  .ob-hero-cta   { animation: ob-in-up    0.6s  cubic-bezier(0.4,0,0.2,1) 0.45s both; }
+  .ob-hero-card  { animation: ob-in-right 0.7s  cubic-bezier(0.4,0,0.2,1) 0.35s both; }
+
+  /* Estado inicial oculto para animaciones de scroll (IntersectionObserver) */
+  .ob-fade-up    { opacity: 0; transform: translateY(22px); }
+  .ob-from-left  { opacity: 0; transform: translateX(-22px); }
+  .ob-from-right { opacity: 0; transform: translateX(22px); }
+
+  /* Estado visible: la transición se aplica al añadir .ob-visible */
+  .ob-fade-up.ob-visible,
+  .ob-from-left.ob-visible,
+  .ob-from-right.ob-visible {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1),
+                transform 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* Delays para efecto stagger en grids */
+  .ob-delay-1.ob-visible { transition-delay:  75ms; }
+  .ob-delay-2.ob-visible { transition-delay: 150ms; }
+  .ob-delay-3.ob-visible { transition-delay: 225ms; }
+  .ob-delay-4.ob-visible { transition-delay: 300ms; }
+  .ob-delay-5.ob-visible { transition-delay: 375ms; }
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,

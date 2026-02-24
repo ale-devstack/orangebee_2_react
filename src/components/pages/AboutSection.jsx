@@ -10,6 +10,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { usePageTitle } from "../../hooks/usePageTitle";
+import { useInView } from "../../hooks/useInView";
 import logoAbeja from '/logo-abeja.webp';
 
 const values = [
@@ -49,6 +50,12 @@ const stats = [
 export default function AboutSection() {
   usePageTitle('Nosotros');
 
+  const [statsRef,   statsInView]   = useInView();
+  const [historyRef, historyInView] = useInView();
+  const [missionRef, missionInView] = useInView();
+  const [valuesRef,  valuesInView]  = useInView();
+  const [ctaRef,     ctaInView]     = useInView();
+
   return (
     <section id="nosotros">
       {/* Hero */}
@@ -58,13 +65,13 @@ export default function AboutSection() {
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-          <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
+          <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase ob-hero-badge">
             Sobre Nosotros
           </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6 ob-hero-title">
             Conoce a OrangeBee
           </h1>
-          <p className="text-neutral-300 text-lg max-w-2xl mx-auto">
+          <p className="text-neutral-300 text-lg max-w-2xl mx-auto ob-hero-body">
             Gestión de cobranza profesional especializada en empresas, banca digital y FinTech.
             Recuperación efectiva con ética y transparencia.
           </p>
@@ -72,10 +79,10 @@ export default function AboutSection() {
       </div>
 
       {/* Stats */}
-      <div className="py-12 bg-white border-b border-neutral-200">
+      <div ref={statsRef} className="py-12 bg-white border-b border-neutral-200">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {stats.map((stat) => (
-            <div key={stat.label}>
+          {stats.map((stat, idx) => (
+            <div key={stat.label} className={`ob-fade-up ob-delay-${idx + 1} ${statsInView ? 'ob-visible' : ''}`}>
               <div className="text-3xl md:text-4xl font-bold text-neutral-900">
                 {stat.value}
               </div>
@@ -84,13 +91,14 @@ export default function AboutSection() {
               </div>
             </div>
           ))}
+
         </div>
       </div>
 
       {/* History */}
-      <div className="py-24 ob-section-soft content-auto">
+      <div ref={historyRef} className="py-24 ob-section-soft content-auto">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          <div>
+          <div className={`ob-from-left ${historyInView ? 'ob-visible' : ''}`}>
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
               Nuestra Historia
             </span>
@@ -115,7 +123,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className={`relative ob-from-right ${historyInView ? 'ob-visible' : ''}`}>
             <div className="aspect-square bg-black rounded-3xl flex items-center justify-center text-center p-8">
               <div className="text-white">
                 <img
@@ -146,9 +154,9 @@ export default function AboutSection() {
       </div>
 
       {/* Mission & Vision */}
-      <div className="py-24 bg-white content-auto">
+      <div ref={missionRef} className="py-24 bg-white content-auto">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
-          <div className="bg-[#0b0b0c] rounded-3xl p-10 border border-white/[0.06]">
+          <div className={`bg-[#0b0b0c] rounded-3xl p-10 border border-white/[0.06] ob-from-left ${missionInView ? 'ob-visible' : ''}`}>
             <div className="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
               <Target className="w-7 h-7 text-orange-500" />
             </div>
@@ -160,7 +168,7 @@ export default function AboutSection() {
             </p>
           </div>
 
-          <div className="bg-neutral-100 rounded-3xl p-10 border border-neutral-200">
+          <div className={`bg-neutral-100 rounded-3xl p-10 border border-neutral-200 ob-from-right ob-delay-1 ${missionInView ? 'ob-visible' : ''}`}>
             <div className="w-14 h-14 rounded-xl bg-orange-500/10 flex items-center justify-center mb-6">
               <Eye className="w-7 h-7 text-orange-500" />
             </div>
@@ -175,9 +183,9 @@ export default function AboutSection() {
       </div>
 
       {/* Values */}
-      <div className="py-24 ob-section-soft content-auto">
+      <div ref={valuesRef} className="py-24 ob-section-soft content-auto">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 ob-fade-up ${valuesInView ? 'ob-visible' : ''}`}>
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
               Nuestros Valores
             </span>
@@ -187,10 +195,10 @@ export default function AboutSection() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value) => (
+            {values.map((value, idx) => (
               <div
                 key={value.title}
-                className="bg-white rounded-2xl p-8 text-center shadow-sm border border-neutral-200/70"
+                className={`bg-white rounded-2xl p-8 text-center shadow-sm border border-neutral-200/70 ob-fade-up ob-delay-${idx + 1} ${valuesInView ? 'ob-visible' : ''}`}
               >
                 <div className="w-16 h-16 rounded-2xl bg-orange-500/10 flex items-center justify-center mx-auto mb-6">
                   <value.icon className="w-8 h-8 text-orange-500" />
@@ -208,22 +216,22 @@ export default function AboutSection() {
       </div>
 
       {/* CTA */}
-      <div className="py-24 bg-neutral-950 text-center relative overflow-hidden content-auto">
+      <div ref={ctaRef} className="py-24 bg-neutral-950 text-center relative overflow-hidden content-auto">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-orange-500/25 rounded-full blur-[70px]" />
         </div>
 
         <div className="relative z-10">
-          <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h3 className={`text-3xl md:text-4xl font-bold text-white mb-6 ob-fade-up ${ctaInView ? 'ob-visible' : ''}`}>
             ¿Listo para trabajar con nosotros?
           </h3>
-          <p className="text-neutral-300 text-lg max-w-2xl mx-auto mb-10">
+          <p className={`text-neutral-300 text-lg max-w-2xl mx-auto mb-10 ob-fade-up ob-delay-1 ${ctaInView ? 'ob-visible' : ''}`}>
             Descubre cómo OrangeBee puede ayudarte a recuperar tu cartera
             vencida de manera efectiva y profesional.
           </p>
           <Link
             to="/contacto"
-            className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
+            className={`inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold transition-colors ob-fade-up ob-delay-2 ${ctaInView ? 'ob-visible' : ''}`}
           >
             Contáctanos hoy
             <ArrowRight className="h-5 w-5" />

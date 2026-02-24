@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { usePageTitle } from "../../hooks/usePageTitle";
+import { useInView } from "../../hooks/useInView";
 import { SERVICES } from "../../data/services";
 import { CONTACT } from "../../data/contact";
 
@@ -36,10 +37,13 @@ const process = [
 ];
 
 function ServiceRow({ service, isEven }) {
+  const [ref, inView] = useInView();
+  const vis = inView ? 'ob-visible' : '';
+
   return (
-    <div className="grid lg:grid-cols-2 gap-16 items-center">
+    <div ref={ref} className="grid lg:grid-cols-2 gap-16 items-center">
       {/* TEXT */}
-      <div className={cn("order-1", isEven ? "lg:order-1" : "lg:order-2")}>
+      <div className={cn("order-1", isEven ? "lg:order-1" : "lg:order-2", isEven ? `ob-from-left ${vis}` : `ob-from-right ${vis}`)}>
         <div className="flex items-center gap-4 mb-6">
           <div className="w-16 h-16 rounded-2xl bg-neutral-900 flex items-center justify-center flex-shrink-0">
             <service.icon className="w-8 h-8 text-orange-500" />
@@ -65,7 +69,7 @@ function ServiceRow({ service, isEven }) {
       </div>
 
       {/* CARD */}
-      <div className={cn("order-2", isEven ? "lg:order-2" : "lg:order-1")}>
+      <div className={cn("order-2", isEven ? "lg:order-2" : "lg:order-1", isEven ? `ob-from-right ${vis}` : `ob-from-left ${vis}`)}>
         <div className="aspect-[4/3] bg-gradient-to-br from-neutral-950 to-neutral-900 rounded-3xl overflow-hidden relative border border-orange-500/20">
           <img
             src={service.imageUrl}
@@ -87,15 +91,18 @@ function ServiceRow({ service, isEven }) {
 export default function ServicesPage() {
   usePageTitle('Servicios');
 
+  const [processRef, processInView] = useInView();
+  const pvis = processInView ? 'ob-visible' : '';
+
   return (
     <main>
       {/* HERO */}
       <section className="ob-dark-hero pt-32 pb-24 relative overflow-hidden">
         <div className="absolute top-20 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-[80px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
-          <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">Nuestros Servicios</span>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Soluciones integrales de cobranza</h1>
-          <p className="text-neutral-300 text-lg max-w-2xl mx-auto">
+          <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase ob-hero-badge">Nuestros Servicios</span>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6 ob-hero-title">Soluciones integrales de cobranza</h1>
+          <p className="text-neutral-300 text-lg max-w-2xl mx-auto ob-hero-body">
             Portafolio completo de servicios de recuperación de cartera para empresas, banca digital y FinTechs en México.
           </p>
         </div>
@@ -111,9 +118,9 @@ export default function ServicesPage() {
       </section>
 
       {/* PROCESS */}
-      <section className="py-24 bg-white content-auto">
+      <section ref={processRef} className="py-24 bg-white content-auto">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 ob-fade-up ${pvis}`}>
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">Nuestro Proceso</span>
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-3 mb-4">Metodología de trabajo</h2>
             <p className="text-neutral-600 max-w-2xl mx-auto">
@@ -122,8 +129,8 @@ export default function ServicesPage() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {process.map((step) => (
-              <div key={step.step} className="bg-neutral-100 rounded-2xl p-8 relative border border-neutral-200">
+            {process.map((step, idx) => (
+              <div key={step.step} className={`bg-neutral-100 rounded-2xl p-8 relative border border-neutral-200 ob-fade-up ob-delay-${idx + 1} ${pvis}`}>
                 <div className="absolute -top-4 left-8 bg-orange-500 text-white font-bold text-sm px-3 py-1 rounded-full">
                   {step.step}
                 </div>
