@@ -26,7 +26,7 @@ export default function ServicesPreview() {
               key={service.id}
               className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-neutral-200/70 hover:border-orange-200"
             >
-              <div className="w-full h-40 rounded-xl overflow-hidden mb-5 border border-neutral-200">
+              <div className="w-full h-40 rounded-xl overflow-hidden mb-5 border border-neutral-200 bg-neutral-100">
                 <img
                   src={service.imageUrl}
                   alt={service.title}

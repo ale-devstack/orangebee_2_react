@@ -14,8 +14,8 @@ function Hero() {
   return (
     <section id="inicio" className="relative min-h-screen md:min-h-[90vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 ob-dark-hero">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/[0.03] rounded-full blur-[150px]" />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-white/5 rounded-full blur-[70px]" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-white/[0.03] rounded-full blur-[80px]" />
         
         <picture>
           <source media="(min-width: 768px)" srcSet={heroDesktop} width={1440} height={900} />

@@ -66,7 +66,7 @@ function ServiceRow({ service, isEven }) {
 
       {/* CARD */}
       <div className={cn("order-2", isEven ? "lg:order-2" : "lg:order-1")}>
-        <div className="aspect-[4/3] bg-gradient-to-br from-neutral-950 to-neutral-800 rounded-3xl overflow-hidden relative border border-orange-500/20">
+        <div className="aspect-[4/3] bg-gradient-to-br from-neutral-950 to-neutral-900 rounded-3xl overflow-hidden relative border border-orange-500/20">
           <img
             src={service.imageUrl}
             alt={service.title}
@@ -91,7 +91,7 @@ export default function ServicesPage() {
     <main>
       {/* HERO */}
       <section className="ob-dark-hero pt-32 pb-24 relative overflow-hidden">
-        <div className="absolute top-20 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-[150px] pointer-events-none" />
+        <div className="absolute top-20 right-10 w-96 h-96 bg-orange-500/10 rounded-full blur-[80px] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
           <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">Nuestros Servicios</span>
           <h1 className="text-4xl md:text-5xl font-bold text-white mt-4 mb-6">Soluciones integrales de cobranza</h1>
@@ -102,7 +102,7 @@ export default function ServicesPage() {
       </section>
 
       {/* SERVICES DETAIL */}
-      <section className="py-24 ob-section-soft">
+      <section className="py-24 ob-section-soft content-auto">
         <div className="max-w-7xl mx-auto px-6 space-y-32">
           {SERVICES.map((service, idx) => (
             <ServiceRow key={service.id} service={service} isEven={idx % 2 === 0} />
@@ -111,7 +111,7 @@ export default function ServicesPage() {
       </section>
 
       {/* PROCESS */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white content-auto">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">Nuestro Proceso</span>
@@ -139,7 +139,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 bg-neutral-950">
+      <section className="py-24 bg-neutral-950 content-auto">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">¿Necesitas recuperar tu cartera vencida?</h2>
           <p className="text-neutral-300 text-lg max-w-2xl mx-auto mb-10">

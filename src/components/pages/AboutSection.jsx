@@ -54,7 +54,7 @@ export default function AboutSection() {
       {/* Hero */}
       <div className="ob-dark-hero pt-32 pb-24 relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute bottom-10 left-10 w-96 h-96 bg-orange-500/10 rounded-full blur-[150px]" />
+          <div className="absolute bottom-10 left-10 w-96 h-96 bg-orange-500/10 rounded-full blur-[80px]" />
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
@@ -88,7 +88,7 @@ export default function AboutSection() {
       </div>
 
       {/* History */}
-      <div className="py-24 ob-section-soft">
+      <div className="py-24 ob-section-soft content-auto">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
@@ -146,7 +146,7 @@ export default function AboutSection() {
       </div>
 
       {/* Mission & Vision */}
-      <div className="py-24 bg-white">
+      <div className="py-24 bg-white content-auto">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
           <div className="bg-[#0b0b0c] rounded-3xl p-10 border border-white/[0.06]">
             <div className="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center mb-6">
@@ -175,7 +175,7 @@ export default function AboutSection() {
       </div>
 
       {/* Values */}
-      <div className="py-24 ob-section-soft">
+      <div className="py-24 ob-section-soft content-auto">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
@@ -208,9 +208,9 @@ export default function AboutSection() {
       </div>
 
       {/* CTA */}
-      <div className="py-24 bg-neutral-950 text-center relative overflow-hidden">
+      <div className="py-24 bg-neutral-950 text-center relative overflow-hidden content-auto">
         <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-orange-500/25 rounded-full blur-[120px]" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-orange-500/25 rounded-full blur-[70px]" />
         </div>
 
         <div className="relative z-10">
