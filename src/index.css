@@ -56,6 +56,15 @@ body {
 
 /* ─── Animaciones (solo si el usuario no prefiere movimiento reducido) ───── */
 @media (prefers-reduced-motion: no-preference) {
+  /* Loader de carga inicial */
+  @keyframes ob-loader-pulse {
+    0%, 100% { transform: scale(1);    opacity: 0.8; }
+    50%       { transform: scale(1.14); opacity: 1;   }
+  }
+  .ob-loader-pulse {
+    animation: ob-loader-pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
   /* Keyframes para héroes: se reproducen automáticamente al cargar */
   @keyframes ob-in-up {
     from { opacity: 0; transform: translateY(20px); }
