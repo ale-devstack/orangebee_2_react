@@ -4,7 +4,7 @@ import { CONTACT } from "../../data/contact";
 
 export default function CTASection() {
   return (
-    <section className="py-28 bg-[#0b0b0c] relative overflow-hidden border-t border-orange-500/15">
+    <section className="py-28 bg-[#0b0b0c] relative overflow-hidden border-t border-orange-500/15 content-auto">
       {/* Orange atmospheric glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-orange-500/[0.11] rounded-full blur-[100px]" />

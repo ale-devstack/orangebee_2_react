@@ -55,7 +55,22 @@ function App() {
     <ErrorBoundary>
       <BrowserRouter basename="/orangebee_2_react">
         <ScrollToTop />
-        <Suspense fallback={<div className="fixed inset-0" style={{ background: '#0b0b0c' }} aria-hidden="true" />}>
+        <Suspense fallback={
+          <div className="fixed inset-0 flex items-center justify-center" style={{ background: '#0b0b0c' }} aria-label="Cargando página">
+            <div
+              style={{
+                width: 40,
+                height: 40,
+                border: '3px solid rgba(255,85,0,0.25)',
+                borderTopColor: '#ff5500',
+                borderRadius: '50%',
+                animation: 'spin 0.7s linear infinite',
+              }}
+              role="status"
+            />
+            <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+          </div>
+        }>
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />

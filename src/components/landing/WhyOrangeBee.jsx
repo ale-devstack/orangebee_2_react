@@ -37,7 +37,7 @@ const reasons = [
 
 export default function WhyOrangeBee() {
   return (
-    <section id="nosotros" className="py-24 bg-white">
+    <section id="nosotros" className="py-24 bg-white content-auto">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left visual */}
