@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, TrendingUp, Users } from 'lucide-react';
 
-import heroDesktop from '/hero-desktop.webp';
-import heroMobile from '/hero-mobile.webp';
+import heroDesktop from '/hero-desktop.avif';
+import heroMobile from '/hero-mobile.avif';
 import Services from '../landing/Services';
 import WhyOrangeBee from '../landing/WhyOrangeBee';
 import CTASection from '../landing/CTASection';
