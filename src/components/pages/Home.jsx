@@ -41,14 +41,14 @@ function Hero() {
               <Hexagon className="w-4 h-4 text-orange-500 fill-orange-500" />
               <span className="text-white/80 text-sm font-medium">Cobranza inteligente y efectiva</span>
             </div> **/}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 ob-hero-title">
               Impulsamos la recuperación de tu
               <span className="block text-orange-500">cartera vencida</span>
             </h1>
-            <p className="text-lg text-neutral-300 mb-10 max-w-xl leading-relaxed">
+            <p className="text-lg text-neutral-300 mb-10 max-w-xl leading-relaxed ob-hero-body">
               Gestión profesional con procesos definidos, métricas claras y enfoque ético en cada etapa.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 ob-hero-cta">
               <Link
                 to="/contacto"
                 className="inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-4 text-lg rounded-xl shadow-lg shadow-orange-500/25 transition-all hover:shadow-xl hover:shadow-orange-500/30"
@@ -65,7 +65,7 @@ function Hero() {
           </div>
 
           {/* Right */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:block ob-hero-card">
             <div className="relative">
               <div className="bg-white/10 border border-white/15 rounded-3xl p-8 shadow-2xl">
                 <div className="space-y-6">

@@ -1,13 +1,17 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { SERVICES } from '../../data/services';
+import { useInView } from '../../hooks/useInView';
 
 export default function ServicesPreview() {
+  const [ref, inView] = useInView();
+  const vis = inView ? 'ob-visible' : '';
+
   return (
-    <section className="py-24 ob-section-soft content-auto">
+    <section ref={ref} className="py-24 ob-section-soft content-auto">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 ob-fade-up ${vis}`}>
           <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">
             Nuestros servicios
           </span>
@@ -21,10 +25,10 @@ export default function ServicesPreview() {
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {SERVICES.map((service) => (
+          {SERVICES.map((service, idx) => (
             <div
               key={service.id}
-              className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-neutral-200/70 hover:border-orange-200"
+              className={`group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-neutral-200/70 hover:border-orange-200 ob-fade-up ob-delay-${idx + 1} ${vis}`}
             >
               <div className="w-full h-40 rounded-xl overflow-hidden mb-5 border border-neutral-200 bg-neutral-100">
                 <img
@@ -62,7 +66,7 @@ export default function ServicesPreview() {
         </div>
 
         {/* CTA */}
-        <div className="text-center">
+        <div className={`text-center ob-fade-up ob-delay-5 ${vis}`}>
           <Link
             to="/servicios"
             className="inline-flex items-center gap-2 bg-black hover:bg-neutral-800 text-white px-8 py-4 rounded-xl font-medium transition-colors shadow-[0_8px_24px_rgba(0,0,0,0.35)]"

@@ -1,6 +1,7 @@
 import {
   CheckCircle2, Award, Clock, Headphones, BarChart3, Lock,
 } from "lucide-react";
+import { useInView } from '../../hooks/useInView';
 
 const reasons = [
   {
@@ -36,12 +37,15 @@ const reasons = [
 ];
 
 export default function WhyOrangeBee() {
+  const [ref, inView] = useInView();
+  const vis = inView ? 'ob-visible' : '';
+
   return (
-    <section id="nosotros" className="py-24 bg-white content-auto">
+    <section ref={ref} id="nosotros" className="py-24 bg-white content-auto">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left visual */}
-          <div className="relative">
+          <div className={`relative ob-from-left ${vis}`}>
             <div className="aspect-square bg-[#0b0b0c] rounded-3xl overflow-hidden relative border border-orange-500/20">
               {/* Orange top accent line */}
               <div className="absolute inset-x-0 top-0 h-1 bg-orange-500" />
@@ -82,7 +86,7 @@ export default function WhyOrangeBee() {
           </div>
 
           {/* Right content */}
-          <div>
+          <div className={`ob-from-right ${vis}`}>
             <span className="text-orange-500 font-semibold text-sm tracking-wider uppercase">¿Por Qué OrangeBee?</span>
             <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mt-3 mb-6">
               La diferencia de trabajar con profesionales
