@@ -1,0 +1,1 @@
+import{r as a}from"./react-vendor-Bl6jAG7G.js";const r="OrangeBee";function n(e){a.useEffect(()=>{document.title=e?`${e} | ${r}`:`${r} | Cobranza Inteligente y Recuperación de Cartera`},[e])}export{n as u};
