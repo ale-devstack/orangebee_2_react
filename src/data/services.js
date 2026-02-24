@@ -23,7 +23,7 @@ export const SERVICES = [
     'Indicadores claros de desempeño'
   ],
   stat: { value: '-35%', label: 'Reducción de mora temprana' },
-  imageUrl: 'cobranza-preventiva.avif',
+  imageUrl: import.meta.env.BASE_URL + 'cobranza-preventiva.avif',
 },
 {
   id: 'administrativa',
@@ -47,7 +47,7 @@ export const SERVICES = [
     'Escalamiento previo a fase judicial'
   ],
   stat: { value: '24h', label: 'Inicio de gestión' },
-  imageUrl: 'cobranza-administrativa.avif',
+  imageUrl: import.meta.env.BASE_URL + 'cobranza-administrativa.avif',
 },
 {
   id: 'judicial',
@@ -71,7 +71,7 @@ export const SERVICES = [
     'Seguimiento procesal continuo'
   ],
   stat: { value: 'Alto índice', label: 'Efectividad procesal' },
-  imageUrl: 'cobranza-judicial.avif',
+  imageUrl: import.meta.env.BASE_URL + 'cobranza-judicial.avif',
 },
   {
   id: 'consultoria',
@@ -95,6 +95,6 @@ export const SERVICES = [
     'Mejores prácticas sectoriales'
   ],
   stat: { value: '+15', label: 'Años de experiencia en cobranza' },
-  imageUrl: 'consultoria-cobranza.avif',
+  imageUrl: import.meta.env.BASE_URL + 'consultoria-cobranza.avif',
 },
 ];

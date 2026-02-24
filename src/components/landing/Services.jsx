@@ -4,7 +4,7 @@ import { SERVICES } from '../../data/services';
 
 export default function ServicesPreview() {
   return (
-    <section className="py-24 ob-section-soft">
+    <section className="py-24 ob-section-soft content-auto">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
